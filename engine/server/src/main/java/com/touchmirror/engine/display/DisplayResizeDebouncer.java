@@ -1,0 +1,81 @@
+package com.touchmirror.engine.display;
+
+import com.touchmirror.engine.model.Size;
+import com.touchmirror.engine.util.Ln;
+
+import android.os.SystemClock;
+
+public final class DisplayResizeDebouncer {
+
+    private static final long DEBOUNCE_DELAY_MS = 300;
+
+    public interface Callback {
+        void trigger(Size size);
+    }
+
+    private final Callback callback;
+
+    private Size request;
+    private long deadline;
+    private Thread thread;
+
+    public DisplayResizeDebouncer(Callback callback) {
+        this.callback = callback;
+    }
+
+    public void start() {
+        assert thread == null;
+        thread = new Thread(this::debounce, "debouncer");
+        thread.setDaemon(true);
+        thread.start();
+    }
+
+    public void stop() {
+        if (thread != null) {
+            thread.interrupt();
+            thread = null;
+        }
+    }
+
+    private void debounce() {
+        try {
+            while (true) {
+                Size size;
+                synchronized (this) {
+                    while (true) {
+                        long now = SystemClock.uptimeMillis();
+                        if (request != null && now >= deadline) {
+                            break;
+                        }
+                        if (request == null) {
+                            wait();
+                        } else {
+                            wait(deadline - now);
+                        }
+                    }
+                    size = request;
+                    request = null;
+                }
+                callback.trigger(size);
+            }
+        } catch (InterruptedException e) {
+        } finally {
+            Ln.d("Debouncer thread stopped");
+        }
+    }
+
+    public synchronized void requestResize(Size size) {
+        assert size != null;
+        if (request == null) {
+            deadline = SystemClock.uptimeMillis() + DEBOUNCE_DELAY_MS;
+        }
+        request = size;
+        notify();
+    }
+
+    public synchronized void cancelResize() {
+        request = null;
+        deadline = 0;
+        notify();
+    }
+}

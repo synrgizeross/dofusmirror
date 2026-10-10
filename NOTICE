@@ -1,0 +1,29 @@
+MirrorDeck
+==========
+
+This product includes software developed by the TouchMirror project
+(https://github.com/shinzarou-eng/TouchMirror), licensed under the MIT
+License, from which MirrorDeck's Android mirroring engine usage and
+protocol design are derived.
+
+The bundled Android engine (assets/engine.jar) is a fork of
+scrcpy-server (https://github.com/Genymobile/scrcpy), licensed under the
+Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0).
+
+Copyright 2018-2022 Genymobile and scrcpy contributors.
+Licensed under the Apache License, Version 2.0.
+
+The engine jar is built from the sources in the upstream repository's
+engine/ directory and remains subject to the Apache License 2.0.
+
+Local modifications to the engine (built with engine/gradlew :server:assembleRelease):
+
+- audio/AudioSource.java: added MIC, VOICE_RECOGNITION and VOICE_COMMUNICATION
+  capture sources alongside the original OUTPUT (REMOTE_SUBMIX).
+- Server.java: audio capture now uses AudioSource.MIC by default.
+
+Reason: REMOTE_SUBMIX capture is blocked on Android 15 / HyperOS, producing
+silent audio with no packets. MIC capture uses the RECORD_AUDIO permission
+available to the adb shell user.
+
+The upstream jar is retained as assets/engine-original.jar for comparison.

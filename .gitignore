@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.log
+
+# engine build artifacts
+engine/build/
+engine/server/build/
+engine/.gradle/
+engine/local.properties
+engine/gradle/wrapper/gradle-wrapper.jar
+
+.DS_Store
+# bundled adb binaries (fetch with: npm run fetch:platform-tools)
+assets/platform-tools/
