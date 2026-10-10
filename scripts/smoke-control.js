@@ -44,7 +44,7 @@ session.on("videoSize", (w, h) => {
     cc.injectScroll(cx, cy, W, H, 0, -2, 0);
     cc.injectKeyPress(KeyCode.Back);
     cc.injectText("hello");
-    cc.setClipboard("mirrordeck", false);
+    cc.setClipboard("dofusmirror", false);
     cc.sendSimple(0x33);
     console.log("  control messages sent");
   }, 1500);

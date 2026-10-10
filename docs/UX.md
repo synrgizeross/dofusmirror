@@ -1,6 +1,6 @@
-# MirrorDeck — UX Specification
+# DofusMirror — UX Specification
 
-**MirrorDeck is an Android game client, not a screen mirror.**
+**DofusMirror is an Android game client, not a screen mirror.**
 
 The phone is the compute. Your PC is the console. The moment you let the phone's
 own UI be visible and primary, you're playing a remote-desktop app, and remote

@@ -24,7 +24,7 @@ function postToRenderer(p: VideoPacket, kind: "video" | "audio", serial: string)
   } catch {}
 }
 
-const LOG_FILE = "/tmp/mirrordeck-app.log";
+const LOG_FILE = "/tmp/dofusmirror-app.log";
 
 function appLog(line: string) {
   try {

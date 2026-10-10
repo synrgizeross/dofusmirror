@@ -175,7 +175,7 @@ class MP4Writer {
 
   sampleEntry() {
     if (this.codec === "hev") {
-      const name = "MirrorDeck";
+      const name = "DofusMirror";
       const compressorname = new Uint8Array(32);
       compressorname[0] = name.length;
       for (let i = 0; i < name.length; i++) compressorname[i + 1] = name.charCodeAt(i);
@@ -196,7 +196,7 @@ class MP4Writer {
   }
 
   avc1() {
-    const name = "MirrorDeck";
+    const name = "DofusMirror";
     const compressorname = new Uint8Array(32);
     compressorname[0] = name.length;
     for (let i = 0; i < name.length; i++) compressorname[i + 1] = name.charCodeAt(i);

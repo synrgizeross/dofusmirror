@@ -1,8 +1,8 @@
 {
-  "name": "mirrordeck-renderer",
+  "name": "dofusmirror-renderer",
   "private": true,
   "type": "module",
-  "description": "MirrorDeck renderer UI. Dependencies live in the root package.json.",
+  "description": "DofusMirror renderer UI. Dependencies live in the root package.json.",
   "dependencies": {
     "cn": "^0.4.0"
   }

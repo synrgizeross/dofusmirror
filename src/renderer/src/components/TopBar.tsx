@@ -20,7 +20,7 @@ export function TopBar({ devices, activeSerial, onSelect, deviceView, onToggleDe
     <header className="flex h-14 shrink-0 items-center gap-4 border-b border-border px-4">
       <div className="flex items-center gap-2.5">
         <span className="size-2 rounded-full bg-primary" />
-        <span className="text-[15px] font-semibold tracking-tight">MirrorDeck</span>
+        <span className="text-[15px] font-semibold tracking-tight">DofusMirror</span>
       </div>
 
       <div className="ml-2 flex items-center gap-1.5">

@@ -1,4 +1,4 @@
-# MirrorDeck
+# DofusMirror
 
 Cross-platform Android screen mirroring and control — Windows, macOS, Linux.
 
@@ -15,7 +15,7 @@ Work in progress. Current milestone: **end-to-end video mirror**
 - ✅ Video decoding via WebCodecs with GPU acceleration
 - ✅ Mouse → touch injection, scroll, back/home/recents, keyboard text
 - ✅ H.264 and H.265 (codec string derived from the stream SPS)
-- ✅ Screenshots (PNG, saved to Pictures/MirrorDeck)
+- ✅ Screenshots (PNG, saved to Pictures/DofusMirror)
 - ✅ Ctrl+wheel pinch-to-zoom, quality presets, auto-reconnect
 - ✅ Bundled adb (self-contained)
 - ⏳ Video capture (MP4 remux), multi-device tiles, virtual display UI

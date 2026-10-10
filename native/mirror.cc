@@ -2,7 +2,7 @@
 
 Napi::Value Version(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
-  return Napi::String::New(env, "mirrordeck-native 0.1.0");
+  return Napi::String::New(env, "dofusmirror-native 0.1.0");
 }
 
 Napi::Object InitNative(Napi::Env env, Napi::Object exports) {

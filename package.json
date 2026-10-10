@@ -1,5 +1,5 @@
 {
-  "name": "mirrordeck",
+  "name": "dofusmirror",
   "version": "0.1.0",
   "description": "Cross-platform Android screen mirroring and control",
   "main": "dist/main/index.js",

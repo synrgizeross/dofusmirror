@@ -1,9 +1,9 @@
-MirrorDeck
+DofusMirror
 ==========
 
 This product includes software developed by the TouchMirror project
 (https://github.com/shinzarou-eng/TouchMirror), licensed under the MIT
-License, from which MirrorDeck's Android mirroring engine usage and
+License, from which DofusMirror's Android mirroring engine usage and
 protocol design are derived.
 
 The bundled Android engine (assets/engine.jar) is a fork of

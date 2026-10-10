@@ -672,7 +672,7 @@ if (result.ok) {
     if (myToken !== sessionToken) return;
     connected = true;
     placeholderEl.classList.add("hidden");
-    document.title = `${result.hello.deviceName} · MirrorDeck`;
+    document.title = `${result.hello.deviceName} · DofusMirror`;
     toolbarEl.classList.remove("hidden");
     canvas.classList.remove("hidden");
     if (typeof loadKeybinds === "function") {
@@ -738,7 +738,7 @@ function onClosed() {
   toolbarEl.classList.add("hidden");
   canvas.classList.add("hidden");
   placeholderEl.classList.remove("hidden");
-  document.title = "MirrorDeck";
+  document.title = "DofusMirror";
   fpsEl.textContent = "";
   clearSelection();
 }
