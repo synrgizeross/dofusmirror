@@ -13,8 +13,8 @@
 <meta property="og:image" content="https://dofusmirror.com/assets/og.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://dofusmirror.com/assets/og.png" />
-<meta name="theme-color" content="#0a0e1a" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='3' width='16' height='14' rx='2.5' fill='%2322d3ee'/%3E%3Cpath d='M9 20h6M12 17v3' stroke='%2322d3ee' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='3' width='16' height='14' rx='2.5' fill='%23facc15'/%3E%3Cpath d='M9 20h6M12 17v3' stroke='%23facc15' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"DofusMirror","operatingSystem":"Windows, macOS, Linux, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://dofusmirror.com","license":"https://opensource.org/licenses/MIT"}
 </script>
@@ -27,13 +27,13 @@
 {"@type":"Question","name":"Does it work over Wi-Fi?","acceptedAnswer":{"@type":"Answer","text":"USB is recommended for lowest latency and best stability. Wireless support depends on your adb setup (adb over TCP/IP)."}}]}
 </script>
 <style>
-:root{--bg:#0a0e1a;--panel:#111827;--line:#1e293b;--accent:#22d3ee;--accent2:#a78bfa;--txt:#e5e7eb;--muted:#94a3b8}
+:root{--bg:#000;--panel:#0b0b0d;--line:#1c1c22;--accent:#facc15;--accent2:#38bdf8;--rgb-r:#f87171;--rgb-g:#4ade80;--rgb-b:#38bdf8;--txt:#e5e7eb;--muted:#9ca3af}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-header{position:sticky;top:0;z-index:50;background:rgba(10,14,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
 .logo svg{width:22px;height:22px}
@@ -41,24 +41,27 @@ nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .nav-links{display:flex;gap:28px;font-size:.9rem;color:var(--muted)}
 .nav-links a:hover{color:#fff}
 .btn{display:inline-block;padding:12px 28px;border-radius:10px;font-weight:600;font-size:.95rem;transition:.15s;cursor:pointer;border:0}
-.btn-primary{background:linear-gradient(135deg,var(--accent),#0ea5e9);color:#04121a}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(34,211,238,.35)}
+.btn-primary{background:linear-gradient(135deg,#fde047,var(--accent),#f59e0b);color:#1a1204}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(250,204,21,.4)}
 .btn-ghost{border:1px solid var(--line);color:var(--muted);background:transparent}
 .btn-ghost:hover{color:#fff;border-color:#334155}
 .btn-sm{padding:9px 18px;font-size:.85rem}
 .hero{position:relative;text-align:center;padding:110px 0 80px;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.13),transparent 70%);pointer-events:none}
-.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid rgba(34,211,238,.3);border-radius:999px;font-size:.8rem;color:var(--accent);background:rgba(34,211,238,.06);margin-bottom:24px}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(250,204,21,.12),transparent 70%);pointer-events:none}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid rgba(250,204,21,.35);border-radius:999px;font-size:.8rem;color:var(--accent);background:rgba(250,204,21,.07);margin-bottom:24px}
 .pill i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
 h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:20px}
-h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 em{font-style:normal;background:linear-gradient(90deg,#facc15 0%,#f87171 38%,#4ade80 68%,#38bdf8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes rgbshift{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+.logo svg{color:var(--accent)}
+.shot-frame::after{animation:rgbshift 8s linear infinite}
 .sub{max-width:640px;margin:0 auto 36px;color:var(--muted);font-size:1.15rem}
 .os-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
 .os-note{color:var(--muted);font-size:.82rem}
 .shot-frame{max-width:960px;margin:56px auto 0;position:relative}
-.shot-frame::after{content:'';position:absolute;inset:-1px;border-radius:18px;box-shadow:0 0 0 1px rgba(34,211,238,.15),0 40px 100px rgba(34,211,238,.08);pointer-events:none}
+.shot-frame::after{content:'';position:absolute;inset:-1px;border-radius:18px;box-shadow:0 0 0 1px rgba(250,204,21,.25),0 0 60px rgba(250,204,21,.12),0 0 120px rgba(56,189,248,.07),0 40px 100px rgba(0,0,0,.7);pointer-events:none}
 .shot-frame img{width:100%;height:auto;border-radius:16px;border:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.65);display:block}
-.stats{border-block:1px solid var(--line);background:rgba(17,24,39,.5)}
+.stats{border-block:1px solid var(--line);background:rgba(11,11,13,.6)}
 .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:28px 24px;text-align:center}
 .stats b{display:block;font-size:1.6rem;color:var(--accent);letter-spacing:-.02em}
 .stats span{color:var(--muted);font-size:.82rem}
@@ -67,8 +70,8 @@ h2{font-size:clamp(1.6rem,3.5vw,2.3rem);font-weight:800;letter-spacing:-.02em;te
 .lead{text-align:center;color:var(--muted);max-width:580px;margin:0 auto 52px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;transition:.15s}
-.card:hover{border-color:rgba(34,211,238,.4);transform:translateY(-4px)}
-.card .ic{width:42px;height:42px;border-radius:11px;background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.25);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--accent)}
+.card:hover{border-color:rgba(250,204,21,.45);transform:translateY(-4px)}
+.card .ic{width:42px;height:42px;border-radius:11px;background:rgba(250,204,21,.1);border:1px solid rgba(250,204,21,.3);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--accent)}
 .card .ic svg{width:20px;height:20px}
 .card h3{font-size:1.05rem;margin-bottom:8px}
 .card p{color:var(--muted);font-size:.92rem}
@@ -85,7 +88,7 @@ h2{font-size:clamp(1.6rem,3.5vw,2.3rem);font-weight:800;letter-spacing:-.02em;te
 .compare td:first-child{color:var(--muted)}
 .compare .yes{color:var(--accent);font-weight:700}
 .compare .no{color:#475569}
-.compare .hl{background:rgba(34,211,238,.04)}
+.compare .hl{background:rgba(250,204,21,.05)}
 .faq{max-width:720px;margin:0 auto}
 .faq details{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-bottom:12px;padding:0 20px}
 .faq summary{padding:18px 0;font-weight:600;cursor:pointer;list-style:none}
@@ -93,11 +96,11 @@ h2{font-size:clamp(1.6rem,3.5vw,2.3rem);font-weight:800;letter-spacing:-.02em;te
 .faq summary::after{content:'+';float:right;color:var(--accent);font-weight:400}
 .faq details[open] summary::after{content:'–'}
 .faq p{padding:0 0 18px;color:var(--muted);font-size:.93rem}
-.cta-band{background:linear-gradient(135deg,rgba(34,211,238,.08),rgba(167,139,250,.08));border-block:1px solid var(--line);text-align:center}
+.cta-band{background:linear-gradient(135deg,rgba(250,204,21,.09),rgba(56,189,248,.07));border-block:1px solid var(--line);text-align:center}
 .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:720px;margin:0 auto 28px}
 .dl-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;transition:.15s;display:block;color:var(--muted)}
 .dl-card:hover{border-color:var(--accent);transform:translateY(-3px);color:#fff}
-.dl-card .os{width:44px;height:44px;margin:0 auto 12px;border-radius:12px;background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.25);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.dl-card .os{width:44px;height:44px;margin:0 auto 12px;border-radius:12px;background:rgba(250,204,21,.1);border:1px solid rgba(250,204,21,.3);display:flex;align-items:center;justify-content:center;color:var(--accent)}
 .dl-card .os svg{width:22px;height:22px}
 .dl-card b{display:block;color:var(--txt);margin-bottom:2px}
 .dl-card span{font-size:.8rem}
@@ -145,7 +148,7 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     </div>
     <p class="os-note">Latest build · see <a href="https://github.com/synrgizeross/dofusmirror/releases" style="color:var(--accent)">releases</a> for changelogs</p>
     <div class="shot-frame">
-      <img src="assets/app-shot.png" width="1600" height="1000" alt="DofusMirror desktop app mirroring Dofus Touch with live stream stats, quality presets and controls" />
+      <img src="assets/app-shot.png" width="1600" height="1000" alt="DofusMirror desktop app mirroring the Dofus Touch login screen from a USB-connected phone, with live FPS, codec, resolution and bitrate status" />
     </div>
   </div>
 </section>
