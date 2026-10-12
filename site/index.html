@@ -115,22 +115,9 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H13L13 2z"/></symbol>
-<symbol id="i-mouse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="6"/><line x1="12" y1="7" x2="12" y2="10"/></symbol>
-<symbol id="i-usb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V8"/><path d="M8 12l4-4 4 4"/><circle cx="12" cy="4.5" r="1.5"/><rect x="9" y="17" width="6" height="4" rx="1"/></symbol>
-<symbol id="i-cam" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
-<symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.5 7.8-8 9-4.5-1.2-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
-<symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
-<symbol id="i-win" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5 10.5 4.4v7.1H3zM12 4.2 21 3v8.5h-9zM3 13.5h7.5v7.1L3 19.5zM12 13.5h9V22l-9-1.3z"/></symbol>
-<symbol id="i-apple" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.1 1.2-.4 2.4-1.1 3.2-.8.9-2 1.6-3.2 1.5-.1-1.2.5-2.4 1.2-3.2C14.2 3.6 15.4 3 16.5 3zM20 17.2c-.5 1.2-.8 1.7-1.5 2.8-.9 1.4-2.2 3.1-3.9 3.1-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.8.9c-1.6 0-2.9-1.6-3.8-3C.9 16.6.6 12.5 2 10.3c1-1.6 2.6-2.5 4.1-2.5 1.5 0 2.4.9 3.7.9 1.2 0 2-.9 3.7-.9 1.3 0 2.7.7 3.7 1.9-3.2 1.8-2.7 6.3 2.8 7.5z"/></symbol>
-<symbol id="i-linux" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l4-5-4-5"/><path d="M12 17h8"/><rect x="3" y="4" width="18" height="16" rx="2"/></symbol>
-<symbol id="i-mirror" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="14" rx="2.5"/><path d="M9 20h6M12 17v3"/></symbol>
-</defs></svg>
-
 <header>
   <div class="wrap"><nav>
-    <a class="logo" href="#"><svg><use href="#i-mirror"/></svg>Dofus<span>Mirror</span></a>
+    <a class="logo" href="#"><i data-lucide="monitor-smartphone"></i>Dofus<span>Mirror</span></a>
     <div class="nav-links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#compare">Compare</a><a href="#faq">FAQ</a></div>
     <a class="btn btn-primary btn-sm" href="#download">Download</a>
   </nav></div>
@@ -167,12 +154,12 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <h2>Everything you need, nothing you don't</h2>
     <p class="lead">Built on a hardened scrcpy-fork Android engine with a modern Electron + Node.js client.</p>
     <div class="grid">
-      <div class="card"><div class="ic"><svg><use href="#i-bolt"/></svg></div><h3>Low-latency video</h3><p>Hardware-accelerated H.264 / H.265 decoding via WebCodecs, with quality presets and auto-reconnect on drop.</p></div>
-      <div class="card"><div class="ic"><svg><use href="#i-mouse"/></svg></div><h3>Full control</h3><p>Mouse-to-touch injection, scroll, Ctrl+wheel pinch-to-zoom, back / home / recents, keyboard text entry and clipboard sync.</p></div>
-      <div class="card"><div class="ic"><svg><use href="#i-usb"/></svg></div><h3>One USB cable</h3><p>No accounts, no cloud, no telemetry. Bundled adb finds your phone automatically — fully self-contained.</p></div>
-      <div class="card"><div class="ic"><svg><use href="#i-cam"/></svg></div><h3>Screenshots</h3><p>Capture PNG screenshots with one shortcut, saved straight to your phone's Pictures/DofusMirror folder.</p></div>
-      <div class="card"><div class="ic"><svg><use href="#i-shield"/></svg></div><h3>No root, no modified APK</h3><p>USB debugging is the only requirement. The engine runs as a standard debug-bridge service and cleans up after itself.</p></div>
-      <div class="card"><div class="ic"><svg><use href="#i-monitor"/></svg></div><h3>Cross-platform</h3><p>Native builds for Windows, macOS and Linux from one codebase — same experience everywhere.</p></div>
+      <div class="card"><div class="ic"><i data-lucide="zap"></i></div><h3>Low-latency video</h3><p>Hardware-accelerated H.264 / H.265 decoding via WebCodecs, with quality presets and auto-reconnect on drop.</p></div>
+      <div class="card"><div class="ic"><i data-lucide="mouse"></i></div><h3>Full control</h3><p>Mouse-to-touch injection, scroll, Ctrl+wheel pinch-to-zoom, back / home / recents, keyboard text entry and clipboard sync.</p></div>
+      <div class="card"><div class="ic"><i data-lucide="cable"></i></div><h3>One USB cable</h3><p>No accounts, no cloud, no telemetry. Bundled adb finds your phone automatically — fully self-contained.</p></div>
+      <div class="card"><div class="ic"><i data-lucide="camera"></i></div><h3>Screenshots</h3><p>Capture PNG screenshots with one shortcut, saved straight to your phone's Pictures/DofusMirror folder.</p></div>
+      <div class="card"><div class="ic"><i data-lucide="shield-check"></i></div><h3>No root, no modified APK</h3><p>USB debugging is the only requirement. The engine runs as a standard debug-bridge service and cleans up after itself.</p></div>
+      <div class="card"><div class="ic"><i data-lucide="monitor"></i></div><h3>Cross-platform</h3><p>Native builds for Windows, macOS and Linux from one codebase — same experience everywhere.</p></div>
     </div>
   </div>
 </section>
@@ -224,9 +211,9 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <h2>Ready when you are</h2>
     <p class="lead" style="margin-bottom:32px">Grab the latest build, plug in your phone, and mirror your first session tonight.</p>
     <div class="dl-grid">
-      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><svg><use href="#i-win"/></svg></div><b>Windows</b><span>Installer · x64</span></a>
-      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><svg><use href="#i-apple"/></svg></div><b>macOS</b><span>Universal · Apple silicon &amp; Intel</span></a>
-      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><svg><use href="#i-linux"/></svg></div><b>Linux</b><span>AppImage / tarball · x64</span></a>
+      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><i data-lucide="layout-grid"></i></div><b>Windows</b><span>Installer · x64</span></a>
+      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><i data-lucide="command"></i></div><b>macOS</b><span>Universal · Apple silicon &amp; Intel</span></a>
+      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><i data-lucide="terminal"></i></div><b>Linux</b><span>AppImage / tarball · x64</span></a>
     </div>
     <p style="color:var(--muted);font-size:.85rem">Free forever · MIT licensed · <a href="https://github.com/synrgizeross/dofusmirror" style="color:var(--accent)">View source on GitHub</a></p>
   </div>
@@ -252,5 +239,7 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <span>Not affiliated with Ankama. Dofus is a trademark of Ankama Studio.</span>
   </div>
 </div></footer>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons({attrs:{width:20,height:20,"stroke-width":2}})</script>
 </body>
 </html>
