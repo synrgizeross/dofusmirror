@@ -55,6 +55,9 @@
     },
     "files": [
       "dist",
+      "!dist/win-unpacked/**",
+      "!dist/mac*/**",
+      "!dist/builder-debug.yml",
       "assets/engine.jar"
     ],
     "extraMetadata": {
