@@ -35,7 +35,16 @@ for (const t of targets) {
     const stage = path.join(tmp, `stage-${t.dir}`);
     await rm(stage, { recursive: true, force: true });
     mkdir(stage, { recursive: true });
-    execFileSync("unzip", ["-q", "-o", zip, "-d", stage]);
+    // Windows has no `unzip`; use the built-in PowerShell extractor there.
+    if (process.platform === "win32") {
+      execFileSync(
+        "powershell.exe",
+        ["-NoProfile", "-NonInteractive", "-Command", `Expand-Archive -LiteralPath '${zip}' -DestinationPath '${stage}' -Force`],
+        { stdio: "inherit" },
+      );
+    } else {
+      execFileSync("unzip", ["-q", "-o", zip, "-d", stage]);
+    }
     const inner = path.join(stage, "platform-tools");
     const dest = path.join(outDir, t.dir);
     await rm(dest, { recursive: true, force: true });

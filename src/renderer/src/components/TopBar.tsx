@@ -1,4 +1,4 @@
-import { Gamepad2, PlugZap, Smartphone } from "lucide-react";
+import { Gamepad2, Monitor, PlugZap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useGamepad } from "@/hooks/useGamepad";
@@ -12,18 +12,25 @@ interface Props {
   onToggleDeviceView: () => void;
 }
 
+const isMac = navigator.platform.toUpperCase().includes("MAC");
+
 export function TopBar({ devices, activeSerial, onSelect, deviceView, onToggleDeviceView }: Props) {
   const pads = useGamepad();
   const online = devices.filter((d) => d.state === "device");
 
   return (
-    <header className="flex h-14 shrink-0 items-center gap-4 border-b border-border px-4">
-      <div className="flex items-center gap-2.5">
-        <span className="size-2 rounded-full bg-primary" />
+    <header
+      className={
+        "titlebar relative flex h-12 shrink-0 items-center gap-4 border-b border-border bg-sidebar px-3 " +
+        (isMac ? "pl-[86px]" : "pr-[150px]")
+      }
+    >
+      <div className="flex items-center gap-2">
+        <span className="size-2 rounded-sm bg-primary" />
         <span className="text-[15px] font-semibold tracking-tight">DofusMirror</span>
       </div>
 
-      <div className="ml-2 flex items-center gap-1.5">
+      <div className="ml-1 flex items-center gap-1.5">
         {online.length === 0 && <span className="text-xs text-muted-foreground">No device</span>}
         {online.map((d) => {
           const active = d.serial === activeSerial;
@@ -35,10 +42,10 @@ export function TopBar({ devices, activeSerial, onSelect, deviceView, onToggleDe
               onClick={() => onSelect(d.serial)}
               aria-pressed={active}
               className={
-                "h-8 gap-2 px-2.5 text-xs" +
+                "h-7 gap-2 rounded-none px-2.5 text-xs" +
                 (active
-                  ? " border border-primary/40 bg-primary/10 text-foreground"
-                  : " text-muted-foreground hover:text-foreground")
+                  ? "border border-primary/40 bg-primary/10 text-foreground"
+                  : "text-muted-foreground hover:text-foreground")
               }
             >
               <PlugZap className="size-3.5" />
@@ -57,22 +64,25 @@ export function TopBar({ devices, activeSerial, onSelect, deviceView, onToggleDe
           size="sm"
           onClick={onToggleDeviceView}
           aria-label="Toggle device view"
-          className="h-8 gap-1.5 text-xs text-muted-foreground hover:text-foreground"
+          className="h-7 gap-1.5 text-xs text-muted-foreground hover:text-foreground"
         >
-          <Smartphone className="size-3.5" />
+          <Monitor className="size-3.5" />
           {deviceView ? "Back to game" : "Device view"}
         </Button>
+
         <Badge
           variant="outline"
           className={
-            "h-7 gap-1.5 rounded-full px-2.5 text-[11px] " +
+            "h-7 gap-1.5 px-2.5 text-[11px] " +
             (pads.length ? "border-primary/40 text-foreground" : "text-muted-foreground")
           }
         >
           <Gamepad2 className="size-3.5" />
           {pads.length ? pads[0].id.slice(0, 22) : "No controller"}
         </Badge>
+
       </div>
+      <span className="rgb-fill rgb-animate pointer-events-none absolute inset-x-0 bottom-0 h-px opacity-45" />
     </header>
   );
 }

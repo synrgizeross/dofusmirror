@@ -38,14 +38,14 @@ export function PlayScreen({
 
   return (
     <div className="min-w-0 flex-1 overflow-y-auto">
-      <div className="w-full max-w-xl px-8 pt-12 pb-10">
+      <div className="mx-auto w-full max-w-xl px-8 pt-14 pb-10">
         <h1 className="text-[30px] font-semibold leading-none tracking-tight">{DOFUS_NAME}</h1>
         <p className="mt-2 max-w-[52ch] text-sm leading-relaxed text-muted-foreground">
           Streamed from your phone. Fullscreen or windowed, driven by keyboard or controller.
         </p>
 
         <div className="mt-7 flex items-center gap-2">
-          <Button id="md-play" size="lg" onClick={onPlay} disabled={!ready || launching} className="h-10 gap-2 px-5">
+          <Button id="md-play" size="lg" onClick={onPlay} disabled={!ready || launching} className="h-10 gap-2 px-6">
             <Play className="size-4" />
             {launching ? "Starting" : "Play"}
           </Button>

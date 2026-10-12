@@ -1,7 +1,7 @@
-import { app, BrowserWindow, ipcMain, dialog, clipboard, MessageChannelMain } from "electron";
+import { app, BrowserWindow, ipcMain, dialog, clipboard, Menu, nativeTheme, MessageChannelMain } from "electron";
 import * as path from "path";
 import * as fs from "fs";
-import { APP_NAME } from "./product";
+import { APP_NAME, OVERLAY, TITLE_BAR_HEIGHT } from "./product";
 import * as adb from "./adb";
 import { MirrorSession, VideoPacket, SessionHello } from "./session";
 import { startLocalApi } from "./api";
@@ -41,8 +41,21 @@ function createWindow() {
     minWidth: 720,
     minHeight: 480,
     title: APP_NAME,
-    backgroundColor: "#0b0e14",
+    backgroundColor: "#0a0a0c",
     autoHideMenuBar: true,
+    // Custom title bar that keeps native window behaviour:
+    // macOS insets its traffic lights; Windows/Linux overlay their native
+    // controls (snap layouts, resize, animations all keep working).
+    ...(process.platform === "darwin"
+      ? { titleBarStyle: "hiddenInset" as const, trafficLightPosition: { x: 14, y: 16 } }
+      : {
+          titleBarStyle: "hidden" as const,
+          titleBarOverlay: {
+            color: OVERLAY.color,
+            symbolColor: OVERLAY.symbolColor,
+            height: TITLE_BAR_HEIGHT,
+          },
+        }),
     webPreferences: {
       preload: path.join(__dirname, "..", "preload.js"),
       contextIsolation: true,
@@ -359,6 +372,7 @@ async function doDisconnect(serial?: string) {
   send("mirrors", listMirrors());
 }
 
+
 ipcMain.handle("mirrors:list", async () => listMirrors());
 
 ipcMain.handle("mirrors:activate", async (_e, serial: string) => ({ ok: doActivate(serial) }));
@@ -631,6 +645,9 @@ ipcMain.handle("dialog:pickGif", async () => {
 });
 
 app.whenReady().then(async () => {
+  // Keep native chrome dark so Windows window borders/menus match the UI.
+  nativeTheme.themeSource = "dark";
+  if (process.platform !== "darwin") Menu.setApplicationMenu(null);
   createWindow();
   try {
     const api = await startLocalApi({
