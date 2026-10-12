@@ -73,6 +73,11 @@
       "darkModeSupport": true,
       "identity": null,
       "files": [
+        "dist",
+        "!dist/win-unpacked/**",
+        "!dist/mac*/**",
+        "!dist/builder-debug.yml",
+        "assets/engine.jar",
         "assets/platform-tools/darwin/**/*"
       ]
     },
@@ -83,6 +88,11 @@
       ],
       "icon": "build/icon.png",
       "files": [
+        "dist",
+        "!dist/win-unpacked/**",
+        "!dist/mac*/**",
+        "!dist/builder-debug.yml",
+        "assets/engine.jar",
         "assets/platform-tools/windows/**/*"
       ]
     },
@@ -102,6 +112,11 @@
       "category": "Utility",
       "synopsis": "Mirror and control Dofus Touch from your desktop",
       "files": [
+        "dist",
+        "!dist/win-unpacked/**",
+        "!dist/mac*/**",
+        "!dist/builder-debug.yml",
+        "assets/engine.jar",
         "assets/platform-tools/linux/**/*"
       ]
     },
