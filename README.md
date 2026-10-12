@@ -2,26 +2,10 @@
 
 Cross-platform Android screen mirroring and control — Windows, macOS, Linux.
 
-Derived from [TouchMirror](https://github.com/shinzarou-eng/TouchMirror) (MIT), with a
-new Electron + Node.js desktop client and the same Apache-2.0 Android engine (scrcpy
-fork) running on the phone.
+Available at [dofusmirror.com](https://dofusmirror.com).
 
-## Status
-
-Work in progress. Current milestone: **end-to-end video mirror**
-
-- ✅ adb device discovery (event-driven via `adb track-devices`)
-- ✅ scrcpy wire-protocol client (mux framing, hello handshake, TLV config)
-- ✅ Video decoding via WebCodecs with GPU acceleration
-- ✅ Mouse → touch injection, scroll, back/home/recents, keyboard text
-- ✅ H.264 and H.265 (codec string derived from the stream SPS)
-- ✅ Screenshots (PNG, saved to Pictures/DofusMirror)
-- ✅ Ctrl+wheel pinch-to-zoom, quality presets, auto-reconnect
-- ✅ Bundled adb (self-contained)
-- ⏳ Video capture (MP4 remux), multi-device tiles, virtual display UI
-- ⏳ Native C addon (zero-copy rendering, native audio path)
-- ⏳ Game audio - not possible with the current engine on Android 15+
-      (REMOTE_SUBMIX returns empty frames; MIC captures the room only)
+Electron + Node.js desktop client paired with an Apache-2.0 Android engine
+(scrcpy fork) running on the phone.
 
 ## Requirements
 
