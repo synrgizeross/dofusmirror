@@ -58,7 +58,7 @@
     "files": [
       "dist",
       "assets/engine.jar",
-      "assets/platform-tools"
+      "assets/platform-tools/${platform}/**/*"
     ],
     "extraMetadata": {
       "main": "dist/main/index.js"
