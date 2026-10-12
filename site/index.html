@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DofusMirror — Mirror your Dofus Touch phone to your desktop</title>
+<meta name="description" content="Mirror and control Dofus Touch from your Windows, macOS or Linux desktop. Low-latency H.264/H.265 video, full mouse & keyboard control, screenshots — one USB cable. Free and open source." />
+<link rel="canonical" href="https://dofusmirror.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="DofusMirror — Play Dofus Touch on your desktop" />
+<meta property="og:description" content="Mirror and control Dofus Touch from your desktop. Low latency, full control, free and open source." />
+<meta property="og:url" content="https://dofusmirror.com/" />
+<meta property="og:image" content="https://dofusmirror.com/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#0a0e1a" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪞</text></svg>" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"DofusMirror","operatingSystem":"Windows, macOS, Linux, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://dofusmirror.com","license":"https://opensource.org/licenses/MIT"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is DofusMirror free?","acceptedAnswer":{"@type":"Answer","text":"Yes. DofusMirror is free and open source under the MIT license. The bundled Android engine is Apache-2.0."}},
+{"@type":"Question","name":"Does the Android app need root?","acceptedAnswer":{"@type":"Answer","text":"No. Only USB debugging is required — no root, no modified APK, nothing installed permanently."}},
+{"@type":"Question","name":"Is it bannable?","acceptedAnswer":{"@type":"Answer","text":"DofusMirror only reads the screen and injects standard touch input on your own device. It does not modify game memory, files or network traffic."}},
+{"@type":"Question","name":"Can I get game audio on my PC?","acceptedAnswer":{"@type":"Answer","text":"On Android 15+ system audio capture is restricted by the OS. A native audio path via the engine's N-API addon is on the roadmap."}},
+{"@type":"Question","name":"Does it work over Wi-Fi?","acceptedAnswer":{"@type":"Answer","text":"USB is recommended for lowest latency and best stability. Wireless support depends on your adb setup (adb over TCP/IP)."}}]}
+</script>
+<style>
+:root{--bg:#0a0e1a;--panel:#111827;--line:#1e293b;--accent:#22d3ee;--accent2:#a78bfa;--txt:#e5e7eb;--muted:#94a3b8}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:50;background:rgba(10,14,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;font-size:.9rem;color:var(--muted)}
+.nav-links a:hover{color:#fff}
+.btn{display:inline-block;padding:12px 28px;border-radius:10px;font-weight:600;font-size:.95rem;transition:.15s;cursor:pointer;border:0}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#0ea5e9);color:#04121a}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(34,211,238,.35)}
+.btn-ghost{border:1px solid var(--line);color:var(--muted);background:transparent}
+.btn-ghost:hover{color:#fff;border-color:#334155}
+.btn-sm{padding:9px 18px;font-size:.85rem}
+.hero{position:relative;text-align:center;padding:110px 0 80px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.13),transparent 70%);pointer-events:none}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid rgba(34,211,238,.3);border-radius:999px;font-size:.8rem;color:var(--accent);background:rgba(34,211,238,.06);margin-bottom:24px}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:20px}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:640px;margin:0 auto 36px;color:var(--muted);font-size:1.15rem}
+.os-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
+.os-note{color:var(--muted);font-size:.82rem}
+.mockup{max-width:860px;margin:48px auto 0;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#0d1424,#0a0e1a);box-shadow:0 30px 80px rgba(0,0,0,.6);padding:14px;text-align:left}
+.mockup .bar{display:flex;gap:6px;padding:2px 8px 12px}
+.mockup .bar i{width:10px;height:10px;border-radius:50%;background:#1e293b}
+.mockup .screen{display:grid;grid-template-columns:2fr 1fr;gap:10px;height:340px}
+.mockup .phone{background:#060a14;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#334155;font-size:.8rem;position:relative;overflow:hidden}
+.mockup .phone::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(34,211,238,.05) 50%,transparent 70%);animation:scan 3.5s linear infinite}
+@keyframes scan{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.mockup .tiles{display:grid;grid-template-rows:1fr 1fr;gap:10px}
+.mockup .tiles div{background:#060a14;border:1px solid var(--line);border-radius:8px}
+.stats{border-block:1px solid var(--line);background:rgba(17,24,39,.5)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:28px 24px;text-align:center}
+.stats b{display:block;font-size:1.6rem;color:var(--accent);letter-spacing:-.02em}
+.stats span{color:var(--muted);font-size:.82rem}
+section{padding:80px 0}
+h2{font-size:clamp(1.6rem,3.5vw,2.3rem);font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:12px}
+.lead{text-align:center;color:var(--muted);max-width:580px;margin:0 auto 52px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;transition:.15s}
+.card:hover{border-color:rgba(34,211,238,.4);transform:translateY(-4px)}
+.card .ic{font-size:1.6rem;margin-bottom:14px}
+.card h3{font-size:1.05rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.92rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;counter-reset:s}
+.step{position:relative;padding:28px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+.step::before{counter-increment:s;content:'0' counter(s);font-size:2.2rem;font-weight:800;color:transparent;-webkit-text-stroke:1px var(--accent);display:block;margin-bottom:14px}
+.step h3{font-size:1rem;margin-bottom:6px}
+.step p{color:var(--muted);font-size:.9rem}
+.compare{max-width:760px;margin:0 auto;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.compare table{width:100%;border-collapse:collapse;font-size:.92rem}
+.compare th,.compare td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
+.compare th{background:var(--panel);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.compare tr:last-child td{border-bottom:0}
+.compare td:first-child{color:var(--muted)}
+.compare .yes{color:var(--accent);font-weight:700}
+.compare .no{color:#475569}
+.compare .hl{background:rgba(34,211,238,.04)}
+.faq{max-width:720px;margin:0 auto}
+.faq details{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-bottom:12px;padding:0 20px}
+.faq summary{padding:18px 0;font-weight:600;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';float:right;color:var(--accent);font-weight:400}
+.faq details[open] summary::after{content:'–'}
+.faq p{padding:0 0 18px;color:var(--muted);font-size:.93rem}
+.cta-band{background:linear-gradient(135deg,rgba(34,211,238,.08),rgba(167,139,250,.08));border-block:1px solid var(--line);text-align:center}
+.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:720px;margin:0 auto 28px}
+.dl-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center;transition:.15s;display:block}
+.dl-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.dl-card .os{font-size:1.5rem}
+.dl-card b{display:block;margin:6px 0 2px}
+.dl-card span{color:var(--muted);font-size:.8rem}
+footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-size:.85rem}
+footer .cols{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:32px}
+footer h4{color:#fff;font-size:.9rem;margin-bottom:12px}
+footer ul{list-style:none}
+footer li{margin-bottom:8px}
+footer li a:hover{color:#fff}
+footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:640px){.nav-links{display:none}.mockup .screen{height:220px}.stats .wrap{grid-template-columns:repeat(2,1fr)}.dl-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap"><nav>
+    <a class="logo" href="#">Dofus<span>Mirror</span></a>
+    <div class="nav-links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#compare">Compare</a><a href="#faq">FAQ</a></div>
+    <a class="btn btn-primary btn-sm" href="#download">Download</a>
+  </nav></div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="pill"><i></i>Free &amp; open source — MIT license</div>
+    <h1>Play Dofus Touch<br>on your <em>desktop</em>.</h1>
+    <p class="sub">DofusMirror mirrors your Android phone to Windows, macOS or Linux over USB — full mouse and keyboard control, near-zero latency, no root required.</p>
+    <div class="os-row">
+      <a class="btn btn-primary" href="https://github.com/synrgizeross/dofusmirror/releases">⬇ Windows</a>
+      <a class="btn btn-primary" href="https://github.com/synrgizeross/dofusmirror/releases">⬇ macOS</a>
+      <a class="btn btn-primary" href="https://github.com/synrgizeross/dofusmirror/releases">⬇ Linux</a>
+    </div>
+    <p class="os-note">Latest build · see <a href="https://github.com/synrgizeross/dofusmirror/releases" style="color:var(--accent)">releases</a> for changelogs</p>
+    <div class="mockup" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="screen">
+        <div class="phone">LIVE MIRROR — H.265 · HARDWARE DECODE</div>
+        <div class="tiles"><div></div><div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div><b>60 fps</b><span>smooth mirror stream</span></div>
+    <div><b>H.264/5</b><span>hardware-accelerated decode</span></div>
+    <div><b>3</b><span>desktop platforms</span></div>
+    <div><b>$0</b><span>free forever, MIT</span></div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Everything you need, nothing you don't</h2>
+    <p class="lead">Built on a hardened scrcpy-fork Android engine with a modern Electron + Node.js client.</p>
+    <div class="grid">
+      <div class="card"><div class="ic">⚡</div><h3>Low-latency video</h3><p>Hardware-accelerated H.264 / H.265 decoding via WebCodecs, with quality presets and auto-reconnect on drop.</p></div>
+      <div class="card"><div class="ic">🖱️</div><h3>Full control</h3><p>Mouse-to-touch injection, scroll, Ctrl+wheel pinch-to-zoom, back / home / recents, keyboard text entry and clipboard sync.</p></div>
+      <div class="card"><div class="ic">🔌</div><h3>One USB cable</h3><p>No accounts, no cloud, no telemetry. Bundled adb finds your phone automatically — fully self-contained.</p></div>
+      <div class="card"><div class="ic">📸</div><h3>Screenshots</h3><p>Capture PNG screenshots with one shortcut, saved straight to your phone's Pictures/DofusMirror folder.</p></div>
+      <div class="card"><div class="ic">🚫</div><h3>No root, no modified APK</h3><p>USB debugging is the only requirement. The engine runs as a standard debug-bridge service and cleans up after itself.</p></div>
+      <div class="card"><div class="ic">🖥️</div><h3>Cross-platform</h3><p>Native builds for Windows, macOS and Linux from one codebase — same experience everywhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:var(--panel)">
+  <div class="wrap">
+    <h2>Up and running in 3 steps</h2>
+    <p class="lead">From download to playing on your monitor in under two minutes.</p>
+    <div class="steps">
+      <div class="step"><h3>Enable USB debugging</h3><p>Developer options on your Android phone — that's the only setup required on the device.</p></div>
+      <div class="step"><h3>Plug in &amp; launch</h3><p>DofusMirror detects the device, pushes the engine and opens the mirror window automatically.</p></div>
+      <div class="step"><h3>Play</h3><p>Log into Dofus Touch with your mouse and keyboard. Mirror in a window, on your second monitor, wherever.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="compare">
+  <div class="wrap">
+    <h2>Why not just use scrcpy?</h2>
+    <p class="lead">scrcpy is great. DofusMirror is built specifically for Dofus Touch players.</p>
+    <div class="compare">
+      <table>
+        <tr><th></th><th class="hl">DofusMirror</th><th>Raw scrcpy</th></tr>
+        <tr><td>Purpose-built for Dofus Touch</td><td class="yes hl">✓</td><td class="no">—</td></tr>
+        <tr><td>Quality presets &amp; auto-reconnect</td><td class="yes hl">✓</td><td class="no">CLI flags only</td></tr>
+        <tr><td>Screenshots to phone gallery</td><td class="yes hl">✓</td><td class="no">—</td></tr>
+        <tr><td>Gaming-friendly UI, zero terminal</td><td class="yes hl">✓</td><td class="no">—</td></tr>
+        <tr><td>Free &amp; open source</td><td class="yes hl">✓</td><td class="yes">✓</td></tr>
+        <tr><td>No root / no modified game</td><td class="yes hl">✓</td><td class="yes">✓</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--panel)">
+  <div class="wrap"><h2>Questions</h2><p class="lead">Short answers, straight up.</p>
+  <div class="faq">
+    <details><summary>Is DofusMirror free?</summary><p>Yes — free and open source under the MIT license. The bundled Android engine is Apache-2.0.</p></details>
+    <details><summary>Does it need root?</summary><p>No. USB debugging is enough. Nothing is modified on your phone or in the game client.</p></details>
+    <details><summary>Is it bannable?</summary><p>DofusMirror only reads the screen and injects standard touch input on your own device. It doesn't touch game memory, files, or network traffic.</p></details>
+    <details><summary>Can I get game audio on my PC?</summary><p>On Android 15+, the OS blocks system audio capture (REMOTE_SUBMIX returns silence). A native audio path through the engine's N-API addon is on the roadmap.</p></details>
+    <details><summary>Does it work over Wi-Fi?</summary><p>USB is recommended for lowest latency and best stability. Wireless works anywhere adb over TCP/IP works.</p></details>
+    <details><summary>Windows, macOS and Linux?</summary><p>All three, with bundled adb per platform — no separate SDK install needed.</p></details>
+  </div></div>
+</section>
+
+<section id="download" class="cta-band">
+  <div class="wrap">
+    <h2>Ready when you are</h2>
+    <p class="lead" style="margin-bottom:32px">Grab the latest build, plug in your phone, and mirror your first session tonight.</p>
+    <div class="dl-grid">
+      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os">🪟</div><b>Windows</b><span>Installer · x64</span></a>
+      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os">🍎</div><b>macOS</b><span>Universal · Apple silicon &amp; Intel</span></a>
+      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os">🐧</div><b>Linux</b><span>AppImage / tarball · x64</span></a>
+    </div>
+    <p style="color:var(--muted);font-size:.85rem">Free forever · MIT licensed · <a href="https://github.com/synrgizeross/dofusmirror" style="color:var(--accent)">View source on GitHub</a></p>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div>
+      <h4>DofusMirror</h4>
+      <ul><li><a href="#features">Features</a></li><li><a href="#how">How it works</a></li><li><a href="#faq">FAQ</a></li></ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul><li><a href="https://github.com/synrgizeross/dofusmirror">GitHub</a></li><li><a href="https://github.com/synrgizeross/dofusmirror/releases">Releases</a></li><li><a href="https://github.com/synrgizeross/dofusmirror/issues">Issues</a></li></ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul><li><a href="https://github.com/synrgizeross/dofusmirror/blob/main/LICENSE">MIT License</a></li><li><a href="https://github.com/synrgizeross/dofusmirror/blob/main/NOTICE">Notices</a></li></ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2026 DofusMirror · dofusmirror.com</span>
+    <span>Not affiliated with Ankama. Dofus is a trademark of Ankama Studio.</span>
+  </div>
+</div></footer>
+</body>
+</html>
