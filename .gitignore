@@ -12,3 +12,4 @@ engine/gradle/wrapper/gradle-wrapper.jar
 .DS_Store
 # bundled adb binaries (fetch with: npm run fetch:platform-tools)
 assets/platform-tools/
+docs/
