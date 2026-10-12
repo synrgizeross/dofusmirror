@@ -10,10 +10,11 @@
 <meta property="og:title" content="DofusMirror — Play Dofus Touch on your desktop" />
 <meta property="og:description" content="Mirror and control Dofus Touch from your desktop. Low latency, full control, free and open source." />
 <meta property="og:url" content="https://dofusmirror.com/" />
-<meta property="og:image" content="https://dofusmirror.com/og.png" />
+<meta property="og:image" content="https://dofusmirror.com/assets/og.png" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://dofusmirror.com/assets/og.png" />
 <meta name="theme-color" content="#0a0e1a" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪞</text></svg>" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='3' width='16' height='14' rx='2.5' fill='%2322d3ee'/%3E%3Cpath d='M9 20h6M12 17v3' stroke='%2322d3ee' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"DofusMirror","operatingSystem":"Windows, macOS, Linux, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://dofusmirror.com","license":"https://opensource.org/licenses/MIT"}
 </script>
@@ -34,7 +35,8 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 header{position:sticky;top:0;z-index:50;background:rgba(10,14,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+.logo svg{width:22px;height:22px}
 .logo span{color:var(--accent)}
 .nav-links{display:flex;gap:28px;font-size:.9rem;color:var(--muted)}
 .nav-links a:hover{color:#fff}
@@ -53,15 +55,9 @@ h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--acc
 .sub{max-width:640px;margin:0 auto 36px;color:var(--muted);font-size:1.15rem}
 .os-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
 .os-note{color:var(--muted);font-size:.82rem}
-.mockup{max-width:860px;margin:48px auto 0;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#0d1424,#0a0e1a);box-shadow:0 30px 80px rgba(0,0,0,.6);padding:14px;text-align:left}
-.mockup .bar{display:flex;gap:6px;padding:2px 8px 12px}
-.mockup .bar i{width:10px;height:10px;border-radius:50%;background:#1e293b}
-.mockup .screen{display:grid;grid-template-columns:2fr 1fr;gap:10px;height:340px}
-.mockup .phone{background:#060a14;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#334155;font-size:.8rem;position:relative;overflow:hidden}
-.mockup .phone::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(34,211,238,.05) 50%,transparent 70%);animation:scan 3.5s linear infinite}
-@keyframes scan{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
-.mockup .tiles{display:grid;grid-template-rows:1fr 1fr;gap:10px}
-.mockup .tiles div{background:#060a14;border:1px solid var(--line);border-radius:8px}
+.shot-frame{max-width:960px;margin:56px auto 0;position:relative}
+.shot-frame::after{content:'';position:absolute;inset:-1px;border-radius:18px;box-shadow:0 0 0 1px rgba(34,211,238,.15),0 40px 100px rgba(34,211,238,.08);pointer-events:none}
+.shot-frame img{width:100%;height:auto;border-radius:16px;border:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.65);display:block}
 .stats{border-block:1px solid var(--line);background:rgba(17,24,39,.5)}
 .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:28px 24px;text-align:center}
 .stats b{display:block;font-size:1.6rem;color:var(--accent);letter-spacing:-.02em}
@@ -72,7 +68,8 @@ h2{font-size:clamp(1.6rem,3.5vw,2.3rem);font-weight:800;letter-spacing:-.02em;te
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;transition:.15s}
 .card:hover{border-color:rgba(34,211,238,.4);transform:translateY(-4px)}
-.card .ic{font-size:1.6rem;margin-bottom:14px}
+.card .ic{width:42px;height:42px;border-radius:11px;background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.25);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--accent)}
+.card .ic svg{width:20px;height:20px}
 .card h3{font-size:1.05rem;margin-bottom:8px}
 .card p{color:var(--muted);font-size:.92rem}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;counter-reset:s}
@@ -98,11 +95,12 @@ h2{font-size:clamp(1.6rem,3.5vw,2.3rem);font-weight:800;letter-spacing:-.02em;te
 .faq p{padding:0 0 18px;color:var(--muted);font-size:.93rem}
 .cta-band{background:linear-gradient(135deg,rgba(34,211,238,.08),rgba(167,139,250,.08));border-block:1px solid var(--line);text-align:center}
 .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:720px;margin:0 auto 28px}
-.dl-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center;transition:.15s;display:block}
-.dl-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.dl-card .os{font-size:1.5rem}
-.dl-card b{display:block;margin:6px 0 2px}
-.dl-card span{color:var(--muted);font-size:.8rem}
+.dl-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;transition:.15s;display:block;color:var(--muted)}
+.dl-card:hover{border-color:var(--accent);transform:translateY(-3px);color:#fff}
+.dl-card .os{width:44px;height:44px;margin:0 auto 12px;border-radius:12px;background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.25);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.dl-card .os svg{width:22px;height:22px}
+.dl-card b{display:block;color:var(--txt);margin-bottom:2px}
+.dl-card span{font-size:.8rem}
 footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-size:.85rem}
 footer .cols{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:32px}
 footer h4{color:#fff;font-size:.9rem;margin-bottom:12px}
@@ -110,13 +108,26 @@ footer ul{list-style:none}
 footer li{margin-bottom:8px}
 footer li a:hover{color:#fff}
 footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-@media(max-width:640px){.nav-links{display:none}.mockup .screen{height:220px}.stats .wrap{grid-template-columns:repeat(2,1fr)}.dl-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.nav-links{display:none}.stats .wrap{grid-template-columns:repeat(2,1fr)}.dl-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H13L13 2z"/></symbol>
+<symbol id="i-mouse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="6"/><line x1="12" y1="7" x2="12" y2="10"/></symbol>
+<symbol id="i-usb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V8"/><path d="M8 12l4-4 4 4"/><circle cx="12" cy="4.5" r="1.5"/><rect x="9" y="17" width="6" height="4" rx="1"/></symbol>
+<symbol id="i-cam" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.5 7.8-8 9-4.5-1.2-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+<symbol id="i-win" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5 10.5 4.4v7.1H3zM12 4.2 21 3v8.5h-9zM3 13.5h7.5v7.1L3 19.5zM12 13.5h9V22l-9-1.3z"/></symbol>
+<symbol id="i-apple" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.1 1.2-.4 2.4-1.1 3.2-.8.9-2 1.6-3.2 1.5-.1-1.2.5-2.4 1.2-3.2C14.2 3.6 15.4 3 16.5 3zM20 17.2c-.5 1.2-.8 1.7-1.5 2.8-.9 1.4-2.2 3.1-3.9 3.1-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.8.9c-1.6 0-2.9-1.6-3.8-3C.9 16.6.6 12.5 2 10.3c1-1.6 2.6-2.5 4.1-2.5 1.5 0 2.4.9 3.7.9 1.2 0 2-.9 3.7-.9 1.3 0 2.7.7 3.7 1.9-3.2 1.8-2.7 6.3 2.8 7.5z"/></symbol>
+<symbol id="i-linux" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l4-5-4-5"/><path d="M12 17h8"/><rect x="3" y="4" width="18" height="16" rx="2"/></symbol>
+<symbol id="i-mirror" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="14" rx="2.5"/><path d="M9 20h6M12 17v3"/></symbol>
+</defs></svg>
+
 <header>
   <div class="wrap"><nav>
-    <a class="logo" href="#">Dofus<span>Mirror</span></a>
+    <a class="logo" href="#"><svg><use href="#i-mirror"/></svg>Dofus<span>Mirror</span></a>
     <div class="nav-links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#compare">Compare</a><a href="#faq">FAQ</a></div>
     <a class="btn btn-primary btn-sm" href="#download">Download</a>
   </nav></div>
@@ -128,17 +139,13 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <h1>Play Dofus Touch<br>on your <em>desktop</em>.</h1>
     <p class="sub">DofusMirror mirrors your Android phone to Windows, macOS or Linux over USB — full mouse and keyboard control, near-zero latency, no root required.</p>
     <div class="os-row">
-      <a class="btn btn-primary" href="https://github.com/synrgizeross/dofusmirror/releases">⬇ Windows</a>
-      <a class="btn btn-primary" href="https://github.com/synrgizeross/dofusmirror/releases">⬇ macOS</a>
-      <a class="btn btn-primary" href="https://github.com/synrgizeross/dofusmirror/releases">⬇ Linux</a>
+      <a class="btn btn-primary" href="https://github.com/synrgizeross/dofusmirror/releases">Download for Windows</a>
+      <a class="btn btn-ghost" href="https://github.com/synrgizeross/dofusmirror/releases">macOS</a>
+      <a class="btn btn-ghost" href="https://github.com/synrgizeross/dofusmirror/releases">Linux</a>
     </div>
     <p class="os-note">Latest build · see <a href="https://github.com/synrgizeross/dofusmirror/releases" style="color:var(--accent)">releases</a> for changelogs</p>
-    <div class="mockup" aria-hidden="true">
-      <div class="bar"><i></i><i></i><i></i></div>
-      <div class="screen">
-        <div class="phone">LIVE MIRROR — H.265 · HARDWARE DECODE</div>
-        <div class="tiles"><div></div><div></div></div>
-      </div>
+    <div class="shot-frame">
+      <img src="assets/app-shot.png" width="1600" height="1000" alt="DofusMirror desktop app mirroring Dofus Touch with live stream stats, quality presets and controls" />
     </div>
   </div>
 </section>
@@ -157,12 +164,12 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <h2>Everything you need, nothing you don't</h2>
     <p class="lead">Built on a hardened scrcpy-fork Android engine with a modern Electron + Node.js client.</p>
     <div class="grid">
-      <div class="card"><div class="ic">⚡</div><h3>Low-latency video</h3><p>Hardware-accelerated H.264 / H.265 decoding via WebCodecs, with quality presets and auto-reconnect on drop.</p></div>
-      <div class="card"><div class="ic">🖱️</div><h3>Full control</h3><p>Mouse-to-touch injection, scroll, Ctrl+wheel pinch-to-zoom, back / home / recents, keyboard text entry and clipboard sync.</p></div>
-      <div class="card"><div class="ic">🔌</div><h3>One USB cable</h3><p>No accounts, no cloud, no telemetry. Bundled adb finds your phone automatically — fully self-contained.</p></div>
-      <div class="card"><div class="ic">📸</div><h3>Screenshots</h3><p>Capture PNG screenshots with one shortcut, saved straight to your phone's Pictures/DofusMirror folder.</p></div>
-      <div class="card"><div class="ic">🚫</div><h3>No root, no modified APK</h3><p>USB debugging is the only requirement. The engine runs as a standard debug-bridge service and cleans up after itself.</p></div>
-      <div class="card"><div class="ic">🖥️</div><h3>Cross-platform</h3><p>Native builds for Windows, macOS and Linux from one codebase — same experience everywhere.</p></div>
+      <div class="card"><div class="ic"><svg><use href="#i-bolt"/></svg></div><h3>Low-latency video</h3><p>Hardware-accelerated H.264 / H.265 decoding via WebCodecs, with quality presets and auto-reconnect on drop.</p></div>
+      <div class="card"><div class="ic"><svg><use href="#i-mouse"/></svg></div><h3>Full control</h3><p>Mouse-to-touch injection, scroll, Ctrl+wheel pinch-to-zoom, back / home / recents, keyboard text entry and clipboard sync.</p></div>
+      <div class="card"><div class="ic"><svg><use href="#i-usb"/></svg></div><h3>One USB cable</h3><p>No accounts, no cloud, no telemetry. Bundled adb finds your phone automatically — fully self-contained.</p></div>
+      <div class="card"><div class="ic"><svg><use href="#i-cam"/></svg></div><h3>Screenshots</h3><p>Capture PNG screenshots with one shortcut, saved straight to your phone's Pictures/DofusMirror folder.</p></div>
+      <div class="card"><div class="ic"><svg><use href="#i-shield"/></svg></div><h3>No root, no modified APK</h3><p>USB debugging is the only requirement. The engine runs as a standard debug-bridge service and cleans up after itself.</p></div>
+      <div class="card"><div class="ic"><svg><use href="#i-monitor"/></svg></div><h3>Cross-platform</h3><p>Native builds for Windows, macOS and Linux from one codebase — same experience everywhere.</p></div>
     </div>
   </div>
 </section>
@@ -186,12 +193,12 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <div class="compare">
       <table>
         <tr><th></th><th class="hl">DofusMirror</th><th>Raw scrcpy</th></tr>
-        <tr><td>Purpose-built for Dofus Touch</td><td class="yes hl">✓</td><td class="no">—</td></tr>
-        <tr><td>Quality presets &amp; auto-reconnect</td><td class="yes hl">✓</td><td class="no">CLI flags only</td></tr>
-        <tr><td>Screenshots to phone gallery</td><td class="yes hl">✓</td><td class="no">—</td></tr>
-        <tr><td>Gaming-friendly UI, zero terminal</td><td class="yes hl">✓</td><td class="no">—</td></tr>
-        <tr><td>Free &amp; open source</td><td class="yes hl">✓</td><td class="yes">✓</td></tr>
-        <tr><td>No root / no modified game</td><td class="yes hl">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Purpose-built for Dofus Touch</td><td class="yes hl">Yes</td><td class="no">No</td></tr>
+        <tr><td>Quality presets &amp; auto-reconnect</td><td class="yes hl">Yes</td><td class="no">CLI flags only</td></tr>
+        <tr><td>Screenshots to phone gallery</td><td class="yes hl">Yes</td><td class="no">No</td></tr>
+        <tr><td>Gaming-friendly UI, zero terminal</td><td class="yes hl">Yes</td><td class="no">No</td></tr>
+        <tr><td>Free &amp; open source</td><td class="yes hl">Yes</td><td class="yes">Yes</td></tr>
+        <tr><td>No root / no modified game</td><td class="yes hl">Yes</td><td class="yes">Yes</td></tr>
       </table>
     </div>
   </div>
@@ -214,9 +221,9 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <h2>Ready when you are</h2>
     <p class="lead" style="margin-bottom:32px">Grab the latest build, plug in your phone, and mirror your first session tonight.</p>
     <div class="dl-grid">
-      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os">🪟</div><b>Windows</b><span>Installer · x64</span></a>
-      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os">🍎</div><b>macOS</b><span>Universal · Apple silicon &amp; Intel</span></a>
-      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os">🐧</div><b>Linux</b><span>AppImage / tarball · x64</span></a>
+      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><svg><use href="#i-win"/></svg></div><b>Windows</b><span>Installer · x64</span></a>
+      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><svg><use href="#i-apple"/></svg></div><b>macOS</b><span>Universal · Apple silicon &amp; Intel</span></a>
+      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><svg><use href="#i-linux"/></svg></div><b>Linux</b><span>AppImage / tarball · x64</span></a>
     </div>
     <p style="color:var(--muted);font-size:.85rem">Free forever · MIT licensed · <a href="https://github.com/synrgizeross/dofusmirror" style="color:var(--accent)">View source on GitHub</a></p>
   </div>
