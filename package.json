@@ -56,10 +56,9 @@
       "buildResources": "build"
     },
     "files": [
-      "dist/**/*",
+      "dist",
       "assets/engine.jar",
-      "assets/platform-tools/**/*",
-      "package.json"
+      "assets/platform-tools"
     ],
     "extraMetadata": {
       "main": "dist/main/index.js"
