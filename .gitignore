@@ -13,3 +13,6 @@ engine/gradle/wrapper/gradle-wrapper.jar
 # bundled adb binaries (fetch with: npm run fetch:platform-tools)
 assets/platform-tools/
 docs/
+release/
+# generated app icons
+build/icon.png
