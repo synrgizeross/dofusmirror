@@ -20,7 +20,13 @@
     "dist:win": "npm run build && electron-builder --win",
     "dist:mac": "npm run build && electron-builder --mac",
     "dist:linux": "npm run build && electron-builder --linux",
-    "release": "npm run build && electron-builder --publish always"
+    "release": "npm run build && electron-builder --publish always",
+    "prebuild": "node scripts/ensure-platform-tools.mjs",
+    "prepack": "node scripts/ensure-platform-tools.mjs",
+    "predist": "node scripts/ensure-platform-tools.mjs",
+    "predist:win": "node scripts/ensure-platform-tools.mjs",
+    "predist:mac": "node scripts/ensure-platform-tools.mjs",
+    "predist:linux": "node scripts/ensure-platform-tools.mjs"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
