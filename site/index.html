@@ -4,28 +4,39 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>DofusMirror — Mirror your Dofus Touch phone to your desktop</title>
-<meta name="description" content="Mirror and control Dofus Touch from your Windows, macOS or Linux desktop. Low-latency H.264/H.265 video, full mouse & keyboard control, screenshots — one USB cable. Free and open source." />
+<meta name="description" content="Mirror and control Dofus Touch — or any Android app — on your Windows, macOS or Linux desktop. Low-latency H.264/H.265 video, full mouse & keyboard control, screenshots — one USB cable. A friendly scrcpy alternative, free and open source." />
 <link rel="canonical" href="https://dofusmirror.com/" />
+<link rel="alternate" hreflang="en" href="https://dofusmirror.com/" />
+<link rel="alternate" hreflang="fr" href="https://dofusmirror.com/fr/" />
+<link rel="alternate" hreflang="es" href="https://dofusmirror.com/es/" />
+<link rel="alternate" hreflang="x-default" href="https://dofusmirror.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="DofusMirror — Play Dofus Touch on your desktop" />
 <meta property="og:description" content="Mirror and control Dofus Touch from your desktop. Low latency, full control, free and open source." />
 <meta property="og:url" content="https://dofusmirror.com/" />
 <meta property="og:image" content="https://dofusmirror.com/assets/og.png" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@dofusmirror" />
+<meta name="twitter:title" content="DofusMirror — Play Dofus Touch on your desktop" />
+<meta name="twitter:description" content="Mirror and control Dofus Touch from your Windows, macOS or Linux desktop. Free and open source." />
 <meta name="twitter:image" content="https://dofusmirror.com/assets/og.png" />
+<meta name="twitter:image:alt" content="DofusMirror desktop app mirroring Dofus Touch from a phone over USB" />
+<meta property="og:site_name" content="DofusMirror" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="DofusMirror desktop app mirroring Dofus Touch from a phone over USB" />
 <meta name="theme-color" content="#000000" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='3' width='16' height='14' rx='2.5' fill='%23facc15'/%3E%3Cpath d='M9 20h6M12 17v3' stroke='%23facc15' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"DofusMirror","operatingSystem":"Windows, macOS, Linux, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://dofusmirror.com","license":"https://opensource.org/licenses/MIT","screenshot":"https://dofusmirror.com/assets/app-shot.png","downloadUrl":"https://github.com/synrgizeross/dofusmirror/releases","softwareVersion":"0.1.0","keywords":"dofus mirror, dofus touch on pc, play dofus touch on computer, dofus touch desktop, android mirror usb, dofus touch windows, dofus touch mac, phone mirror gaming, how to mirror android on pc, scrcpy android, mirror android screen to pc, is scrcpy safe, scrcpy gui, scrcpy alternative, scrcpy could not find any adb device","author":{"@type":"Organization","name":"DofusMirror","url":"https://dofusmirror.com"},"publisher":{"@type":"Organization","name":"DofusMirror","url":"https://dofusmirror.com"}}</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"DofusMirror","operatingSystem":"Windows, macOS, Linux, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://dofusmirror.com","license":"https://opensource.org/licenses/MIT"}
+{"@context":"https://schema.org","@type":"WebSite","name":"DofusMirror","alternateName":"Dofus Mirror","url":"https://dofusmirror.com"}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Is DofusMirror free?","acceptedAnswer":{"@type":"Answer","text":"Yes. DofusMirror is free and open source under the MIT license. The bundled Android engine is Apache-2.0."}},
-{"@type":"Question","name":"Does the Android app need root?","acceptedAnswer":{"@type":"Answer","text":"No. Only USB debugging is required — no root, no modified APK, nothing installed permanently."}},
-{"@type":"Question","name":"Is it bannable?","acceptedAnswer":{"@type":"Answer","text":"DofusMirror only reads the screen and injects standard touch input on your own device. It does not modify game memory, files or network traffic."}},
-{"@type":"Question","name":"Can I get game audio on my PC?","acceptedAnswer":{"@type":"Answer","text":"On Android 15+ system audio capture is restricted by the OS. A native audio path via the engine's N-API addon is on the roadmap."}},
-{"@type":"Question","name":"Does it work over Wi-Fi?","acceptedAnswer":{"@type":"Answer","text":"USB is recommended for lowest latency and best stability. Wireless support depends on your adb setup (adb over TCP/IP)."}}]}
+{"@context":"https://schema.org","@type":"Organization","name":"DofusMirror","url":"https://dofusmirror.com","logo":"https://dofusmirror.com/assets/og.png","sameAs":["https://github.com/synrgizeross/dofusmirror"]}
 </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is DofusMirror free?","acceptedAnswer":{"@type":"Answer","text":"Yes — free and open source under the MIT license. The bundled Android engine is Apache-2.0."}},{"@type":"Question","name":"Does it need root?","acceptedAnswer":{"@type":"Answer","text":"No. USB debugging is enough. Nothing is modified on your phone or in the game client."}},{"@type":"Question","name":"Is it bannable?","acceptedAnswer":{"@type":"Answer","text":"DofusMirror only reads the screen and injects standard touch input on your own device. It doesn't touch game memory, files, or network traffic."}},{"@type":"Question","name":"Can I get game audio on my PC?","acceptedAnswer":{"@type":"Answer","text":"On Android 15+, the OS blocks system audio capture (REMOTE_SUBMIX returns silence). A native audio path through the engine's N-API addon is on the roadmap."}},{"@type":"Question","name":"Does it work over Wi-Fi?","acceptedAnswer":{"@type":"Answer","text":"USB is recommended for lowest latency and best stability. Wireless works anywhere adb over TCP/IP works."}},{"@type":"Question","name":"Does it work with any Android app?","acceptedAnswer":{"@type":"Answer","text":"Yes. DofusMirror mirrors the whole Android screen over USB, so any app or game works — Dofus Touch, a mobile MMO without an emulator, or just your phone's gallery on a big monitor. scrcpy users get the same engine with a desktop GUI instead of terminal flags."}},{"@type":"Question","name":"How is DofusMirror related to scrcpy?","acceptedAnswer":{"@type":"Answer","text":"DofusMirror is built on a hardened fork of the scrcpy Android engine, then wrapped in a GUI tuned for Dofus Touch: quality presets, auto-reconnect, one-click screenshots and a real desktop interface instead of terminal flags. If you only need raw mirroring, plain scrcpy is great — we use it under the hood."}},{"@type":"Question","name":"Is it safe to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. The engine runs locally, talks only to your own phone over USB, and sends nothing to the internet. No accounts, no cloud, no telemetry — you can verify it in the open-source code."}},{"@type":"Question","name":"My device isn't detected — what now?","acceptedAnswer":{"@type":"Answer","text":"Make sure USB debugging is enabled and you accepted the fingerprint prompt on the phone. Then try another USB cable (charge-only cables are the usual culprit) and check the built-in diagnostics tab, which runs adb devices for you."}},{"@type":"Question","name":"Windows, macOS and Linux?","acceptedAnswer":{"@type":"Answer","text":"All three, with bundled adb per platform — no separate SDK install needed."}}]}</script>
 <style>
 :root{--bg:#000;--panel:#0b0b0d;--line:#1c1c22;--accent:#facc15;--accent2:#38bdf8;--rgb-r:#f87171;--rgb-g:#4ade80;--rgb-b:#38bdf8;--txt:#e5e7eb;--muted:#9ca3af}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -119,10 +130,11 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
   <div class="wrap"><nav>
     <a class="logo" href="#"><i data-lucide="monitor-smartphone"></i>Dofus<span>Mirror</span></a>
     <div class="nav-links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#compare">Compare</a><a href="#faq">FAQ</a></div>
-    <a class="btn btn-primary btn-sm" href="#download">Download</a>
+    <div style="display:flex;align-items:center;gap:12px"><nav class="nav-links" style="gap:10px;font-size:.85rem" aria-label="Languages"><a href="/" hreflang="en">EN</a><a href="/fr/" hreflang="fr">FR</a><a href="/es/" hreflang="es">ES</a></nav><a class="btn btn-primary btn-sm" href="#download">Download</a></div>
   </nav></div>
 </header>
 
+<main>
 <section class="hero">
   <div class="wrap">
     <div class="pill"><i></i>Free &amp; open source — MIT license</div>
@@ -166,7 +178,7 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
 
 <section id="how" style="background:var(--panel)">
   <div class="wrap">
-    <h2>Up and running in 3 steps</h2>
+    <h2>How to mirror Android on your PC in 3 steps</h2>
     <p class="lead">From download to playing on your monitor in under two minutes.</p>
     <div class="steps">
       <div class="step"><h3>Enable USB debugging</h3><p>Developer options on your Android phone — that's the only setup required on the device.</p></div>
@@ -202,6 +214,10 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <details><summary>Is it bannable?</summary><p>DofusMirror only reads the screen and injects standard touch input on your own device. It doesn't touch game memory, files, or network traffic.</p></details>
     <details><summary>Can I get game audio on my PC?</summary><p>On Android 15+, the OS blocks system audio capture (REMOTE_SUBMIX returns silence). A native audio path through the engine's N-API addon is on the roadmap.</p></details>
     <details><summary>Does it work over Wi-Fi?</summary><p>USB is recommended for lowest latency and best stability. Wireless works anywhere adb over TCP/IP works.</p></details>
+    <details><summary>Does it work with any Android app?</summary><p>Yes. DofusMirror mirrors the whole Android screen over USB, so any app or game works — Dofus Touch, a mobile MMO without an emulator, or just your phone's gallery on a big monitor. scrcpy users get the same engine with a desktop GUI instead of terminal flags.</p></details>
+      <details><summary>How is DofusMirror related to scrcpy?</summary><p>DofusMirror is built on a hardened fork of the scrcpy Android engine, then wrapped in a GUI tuned for Dofus Touch: quality presets, auto-reconnect, one-click screenshots and a real desktop interface instead of terminal flags. If you only need raw mirroring, plain scrcpy is great — we use it under the hood.</p></details>
+    <details><summary>Is it safe to use?</summary><p>Yes. The engine runs locally, talks only to your own phone over USB, and sends nothing to the internet. No accounts, no cloud, no telemetry — you can verify it in the open-source code.</p></details>
+    <details><summary>My device isn't detected — what now?</summary><p>Make sure USB debugging is enabled and you accepted the fingerprint prompt on the phone. Then try another USB cable (charge-only cables are the usual culprit) and check the built-in diagnostics tab, which runs adb devices for you.</p></details>
     <details><summary>Windows, macOS and Linux?</summary><p>All three, with bundled adb per platform — no separate SDK install needed.</p></details>
   </div></div>
 </section>
@@ -218,6 +234,8 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <p style="color:var(--muted);font-size:.85rem">Free forever · MIT licensed · <a href="https://github.com/synrgizeross/dofusmirror" style="color:var(--accent)">View source on GitHub</a></p>
   </div>
 </section>
+
+</main>
 
 <footer><div class="wrap">
   <div class="cols">
