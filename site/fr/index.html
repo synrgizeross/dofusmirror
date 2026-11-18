@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="fr">
 <head>
+<!-- Google Tag Manager -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5F7M2443"></script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Jouer à Dofus Touch sur PC — DofusMirror (Windows, macOS, Linux)</title>
@@ -119,6 +126,7 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
 </style>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5F7M2443" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <header>
   <div class="wrap"><nav>
     <a class="logo" href="/fr/"><i data-lucide="monitor-smartphone"></i>Dofus<span>Mirror</span></a>
@@ -134,9 +142,9 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <h1>Jouez à Dofus Touch<br>sur votre <em>PC</em>.</h1>
     <p class="sub">DofusMirror affiche l'écran de votre téléphone Android sur Windows, macOS ou Linux par USB — contrôle complet à la souris et au clavier, latence quasi nulle, sans root.</p>
     <div class="os-row">
-      <a class="btn btn-primary" href="https://github.com/synrgizeross/dofusmirror/releases">Télécharger pour Windows</a>
-      <a class="btn btn-ghost" href="https://github.com/synrgizeross/dofusmirror/releases">macOS</a>
-      <a class="btn btn-ghost" href="https://github.com/synrgizeross/dofusmirror/releases">Linux</a>
+      <a class="btn btn-primary" data-dl="windows" href="https://github.com/synrgizeross/dofusmirror/releases">Télécharger pour Windows</a>
+      <a class="btn btn-ghost" data-dl="macos" href="https://github.com/synrgizeross/dofusmirror/releases">macOS</a>
+      <a class="btn btn-ghost" data-dl="linux" href="https://github.com/synrgizeross/dofusmirror/releases">Linux</a>
     </div>
     <p class="os-note">Dernière version · voir les <a href="https://github.com/synrgizeross/dofusmirror/releases" style="color:var(--accent)">releases</a> pour les changelogs</p>
     <div class="shot-frame">
@@ -218,9 +226,9 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
     <h2>Prêt quand vous l'êtes</h2>
     <p class="lead" style="margin-bottom:32px">Récupérez la dernière version, branchez votre téléphone, et jouez votre première session ce soir.</p>
     <div class="dl-grid">
-      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><i data-lucide="layout-grid"></i></div><b>Windows</b><span>Installateur · x64</span></a>
-      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><i data-lucide="command"></i></div><b>macOS</b><span>Universel · Apple silicon &amp; Intel</span></a>
-      <a class="dl-card" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><i data-lucide="terminal"></i></div><b>Linux</b><span>AppImage / tarball · x64</span></a>
+      <a class="dl-card" data-dl="windows" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><i data-lucide="layout-grid"></i></div><b>Windows</b><span>Installateur · x64</span></a>
+      <a class="dl-card" data-dl="macos" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><i data-lucide="command"></i></div><b>macOS</b><span>Universel · Apple silicon &amp; Intel</span></a>
+      <a class="dl-card" data-dl="linux" href="https://github.com/synrgizeross/dofusmirror/releases"><div class="os"><i data-lucide="terminal"></i></div><b>Linux</b><span>AppImage / tarball · x64</span></a>
     </div>
     <p style="color:var(--muted);font-size:.85rem">Gratuit pour toujours · Licence MIT · <a href="https://github.com/synrgizeross/dofusmirror" style="color:var(--accent)">Voir le code sur GitHub</a></p>
   </div>
@@ -250,5 +258,20 @@ footer .bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;ju
 </div></footer>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>lucide.createIcons({attrs:{width:20,height:20,"stroke-width":2}})</script>
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href*="releases"]') : null;
+    if (!a || !window.dataLayer) return;
+    var card = a.closest ? a.closest('[data-dl]') : null;
+    var platform = (a.dataset.dl || (card && card.dataset.dl) || 'release').toLowerCase();
+    window.dataLayer.push({
+      event: 'download_click',
+      download_platform: platform,
+      download_label: (a.textContent || '').trim().replace(/\s+/g, ' '),
+      download_url: a.href,
+      page_language: document.documentElement.lang
+    });
+  }, true);
+</script>
 </body>
 </html>
